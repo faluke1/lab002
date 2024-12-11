@@ -44,6 +44,7 @@
             label4 = new Label();
             label6 = new Label();
             lblResult = new Label();
+            button1 = new Button();
             groupBox3.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -208,11 +209,22 @@
             lblResult.Text = "0.00";
             lblResult.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // button1
+            // 
+            button1.Location = new Point(594, 326);
+            button1.Name = "button1";
+            button1.Size = new Size(182, 74);
+            button1.TabIndex = 21;
+            button1.Text = "ล้างค่า";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click_1;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(843, 576);
+            Controls.Add(button1);
             Controls.Add(label6);
             Controls.Add(lblResult);
             Controls.Add(groupBox2);
@@ -249,5 +261,6 @@
         private Label label4;
         private Label label6;
         private Label lblResult;
+        private Button button1;
     }
 }

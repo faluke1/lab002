@@ -1,3 +1,5 @@
+using System.Xml.Linq;
+
 namespace lab002
 {
     public partial class Form1 : Form
@@ -9,8 +11,8 @@ namespace lab002
 
         private void Form1_Load(object sender, EventArgs e)
         {
-              MessageBox.Show("สวัสดี!", "!!!Welcome Text!!!",
-            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show("สวัสดี!", "!!!Welcome Text!!!",
+          MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -82,6 +84,25 @@ namespace lab002
             {
                 e.Cancel = true;
             }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            clearForm();
+        }
+        private void clearForm()
+        {
+            txtRadius.Text = "";
+            txtHeight.Text = "";
+            txtWidth.Text = "";
+            txtHexagonWidth.Text = "";
+            lblResult.Text = "";
+
+            //txtName.TextAlign = HorizontalAlignment.Left; // จัดชิดซ้าย
+            //txtAge.TextAlign = HorizontalAlignment.Right; // จัดชิดขวา
+            //txtHeight.TextAlign = HorizontalAlignment.Right; // จัดชิดขวา
+            //txtWeight.TextAlign = HorizontalAlignment.Right; // จัดชิดขวา
+            //txtName.Focus(); // โฟกัสที่ชื่อ
         }
     }
 }
