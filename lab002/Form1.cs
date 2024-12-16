@@ -27,30 +27,43 @@ namespace lab002
 
         private void btnCircleArea_Click(object sender, EventArgs e)
         {
-            //ถามยืนยันว่าต้องการปิดโปรแกรมหรือไม่
-            double Radius = 0;
-            if (double.TryParse(txtRadius.Text, out Radius) == false)
+            // ตรวจสอบค่าที่ป้อนใน TextBox
+            if (double.TryParse(txtRadius.Text, out double radius))
             {
-                MessageBox.Show("Please input only number.", " !!! Error !!! ");
-                return;
-            }
-            double CircleArea = Math.PI * Math.Pow(Radius, 2);
-            lblResult.Text = CircleArea.ToString("0.00");
+                // เรียกใช้ Method แบบ return เพื่อคำนวณพื้นที่วงกลม
+                double area = calculate(radius);
 
-            txtRadius.Focus();
-            txtRadius.SelectAll();
+                // แสดงผลลัพธ์ใน Label
+                lblResult.Text = area.ToString("0.00");
+            }
+            else
+            {
+                MessageBox.Show("มั่วละ", "อ้าว");
+                txtRadius.Focus(); // ให้ cursor อยู่ใน TextBox
+                txtRadius.Select(); // ให้เลือกข้อความใน TextBox
+            }
+        }
+
+        // Method แบบ return สำหรับคำนวณพื้นที่วงกลม
+        private double calculate(double radius)
+        {
+            return Math.PI * Math.Pow(radius, 2); // คืนค่าพื้นที่วงกลม
         }
 
         private void btnTriangleArea_Click(object sender, EventArgs e)
         {
+            SAM(txtHeight.Text, txtWidth.Text);
+        }
+        void SAM(string Sung, string Yaw)
+        {
             double THeight = 0;
             double TBase = 0;
-            if (double.TryParse(txtHeight.Text, out THeight) == false)
+            if (double.TryParse(Sung, out THeight) == false)
             {
                 MessageBox.Show("Please input only number.", " !!! Error !!! ");
                 return;
             }
-            if (double.TryParse(txtWidth.Text, out TBase) == false)
+            if (double.TryParse(Yaw, out TBase) == false)
             {
                 MessageBox.Show("Please input only number.", " !!! Error !!! ");
                 return;
@@ -62,6 +75,7 @@ namespace lab002
             txtRadius.SelectAll();
         }
 
+
         private void btnHexagonArea_Click(object sender, EventArgs e)
         {
             double HexW = 0;
@@ -70,11 +84,18 @@ namespace lab002
                 MessageBox.Show("Please input only number.", " !!! Error !!! ");
                 return;
             }
-            double HexArea = (3 * Math.Sqrt(3) * Math.Pow(HexW, 2)) / 2;
-            lblResult.Text = HexArea.ToString("0.00");
+
+            //lblResult.Text = HexArea.ToString("0.00");
+            double faukeshop = Toat(HexW);
+            lblResult.Text = faukeshop.ToString("0.00");
 
             txtRadius.Focus();
             txtRadius.SelectAll();
+        }
+
+        double Toat(double yawtant)
+        {
+            return (3 * Math.Sqrt(3) * Math.Pow(yawtant, 2)) / 2;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
